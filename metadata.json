@@ -10,7 +10,10 @@
   "checksums": {
     "Modulefile": "f68ee17e5756995ad1e62b410a074a3a",
     "README": "2b5e4a04c5d66df00fef9c81dbf844d7",
+    "lib/facter/python_version.rb": "d41d8cd98f00b204e9800998ecf8427e",
     "manifests/init.pp": "5e39513b4373bb41ab8320c2199100ea",
+    "manifests/python.pp": "78bf1ae130809daa25c434b8d3bcff54",
+    "manifests/test": "d41d8cd98f00b204e9800998ecf8427e",
     "spec/spec.opts": "a600ded995d948e393fbe2320ba8e51c",
     "spec/spec_helper.rb": "ca19ec4f451ebc7fdb035b52eae6e909",
     "tests/init.pp": "8ae2bf3923d1cfc36d854e2bcfe7172a"
