@@ -17,4 +17,6 @@ class params {
 	$tmpdir = '/tmp'
 	$prefix = '/usr/local'
 	$pipversion = '1.3'
+	$envpath = '/var/www/html/'
+	$envname = 'testproject'
 }
