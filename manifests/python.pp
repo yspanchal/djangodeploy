@@ -11,9 +11,9 @@
 # Sample Usage:
 #
 # [Remember: No empty lines between comments and class definition]
-node puppet {
-	include python
-}
+#node puppet {
+#	include python
+#}
 
 class python {
 	include params
