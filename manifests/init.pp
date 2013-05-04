@@ -1,4 +1,4 @@
-# Class: django-deploy
+# Class: djangodeploy
 #
 # This module manages django-deploy
 #
@@ -11,7 +11,7 @@
 # Sample Usage:
 #
 # [Remember: No empty lines between comments and class definition]
-class django-deploy {
 
+class djangodeploy {
 
 }

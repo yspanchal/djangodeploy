@@ -1,4 +1,4 @@
-# Class: params
+# Class: venv
 #
 # This module manages django-deploy
 #
@@ -23,7 +23,16 @@ class venv {
 	exec { "Create Virtualenv":
 		command	=>	"virtualenv $params::envpath$params::envname",
 		cwd		=>	"$params::envpath",
-		after	=>	Exec["Install virtualenv"],	
+		require	=>	Exec["Install virtualenv"],	
 	}
-	
+	file { "$params::envpath/requirements.txt":
+		ensure	=>	"present",
+		content	=>	template("djangodeploy/requirements.txt.erb"),
+		require	=>	"Create Virtualenv",
+	}
+	exec { "Install-packages":
+		command	=>	"$params::envpath/$params::envname/bin/pip-$params::pythonversion install -r requirements.txt",
+		cwd	=>	"$params::envpath",
+		require	=>	"Install-packages",
+	}
 }

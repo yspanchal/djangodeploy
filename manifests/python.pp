@@ -12,7 +12,7 @@
 #
 # [Remember: No empty lines between comments and class definition]
 #node puppet {
-#	include python
+#	include venv
 #}
 
 class python {
