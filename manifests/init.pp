@@ -4,18 +4,33 @@
 #
 # Parameters:
 #
-# Actions:
+# Actions: Deploy Django Application
 #
 # Requires:
 #
-# Sample Usage:
+# Sample Usage: Following is sample usage of classes for deploying django application
 #
-# [Remember: No empty lines between comments and class definition]
+# 
+#class djangodeploy {
+#	Class["params"] -> Class["python"] -> Class["venv"] -> Class["app"] -> Class["database"] -> Class["apprun"]
+#}
+#
+#node puppet {
+#	include djangodeploy
+#}
+########################################################################################################################
+#Customize Installation
+#
+#class djangodeploy {
+#	Class["params"] -> Class["python"] -> Class["venv"] -> Class["app"] -> Class["apprun"]
+#}
+#
+#
+#node mysql.example.com {
+#	include database
+#}
 
-class djangodeploy {
-	include database
-}
-
-node puppet {
-	include djangodeploy
-}
+#node puppet {
+#	include djangodeploy
+#}
+########################################################################################################################
