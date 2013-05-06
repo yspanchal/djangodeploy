@@ -25,4 +25,9 @@ class params {
 	$svnrepo = "http://svnrepo"
 	$svnuser = ""
 	$svnpassword = ""
+	$database = "mysql"
+	$mysqluser = "root"
+	$mysqlpassword = "password"
+	$mysqldbname = "myproject"
+	
 }
