@@ -1,16 +1,18 @@
 # Class: venv
 #
-# This module manages django-deploy
+# This module manages installing & creating python virtual environment 
 #
 # Parameters:
 #
-# Actions:
+# Actions: Install Virtual Env
+#		   Create Virtual Env
+#		   Install Python Packages
 #
 # Requires:
 #
 # Sample Usage:
 #
-# [Remember: No empty lines between comments and class definition]
+# #########################################################################
 
 class venv {
 	include params

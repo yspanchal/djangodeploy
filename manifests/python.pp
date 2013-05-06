@@ -1,19 +1,18 @@
 # Class: python
 #
-# This module manages python installation
+# This module manages python, pip & its dependencies installation
 #
 # Parameters:
 #
-# Actions:
+# Actions: Install python
+#		   Install pip
 #
 # Requires:
 #
 # Sample Usage:
 #
-# [Remember: No empty lines between comments and class definition]
-#node puppet {
-#	include venv
-#}
+# #########################################################################
+
 
 class python {
 	include params

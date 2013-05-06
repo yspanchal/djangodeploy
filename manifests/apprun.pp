@@ -1,16 +1,17 @@
 # Class: app
 #
-# This module manages django-deploy
+# This module manages creating database & running application
 #
 # Parameters:
 #
-# Actions:
+# Actions:	python manage.py syncdb
+#		    python manage.py runserver 0.0.0.0:8000
 #
 # Requires:
 #
 # Sample Usage:
 #
-# [Remember: No empty lines between comments and class definition]
+# #############################################################################
 
 class apprun {
 	include params

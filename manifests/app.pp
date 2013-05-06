@@ -1,16 +1,17 @@
 # Class: app
 #
-# This module manages django-deploy
+# This module manages pulling application from git or svn repository
 #
 # Parameters:
 #
-# Actions:
+# Actions: Git clone 
+#		   SVN checkout
 #
 # Requires:
 #
 # Sample Usage:
 #
-# [Remember: No empty lines between comments and class definition]
+# #########################################################################
 
 class app {
 	include params

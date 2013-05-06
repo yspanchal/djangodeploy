@@ -1,16 +1,18 @@
 # Class: database
 #
-# This module manages django-deploy
+# This module manages installing mysql or sqlite database
 #
 # Parameters:
 #
-# Actions:
+# Actions: Install Mysql-Server
+#		   Install Sqlite
+#		   Create Mysql-Database
 #
 # Requires:
 #
 # Sample Usage:
 #
-# [Remember: No empty lines between comments and class definition]
+# #############################################################################
 
 class database {
 	include params
