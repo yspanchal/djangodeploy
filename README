@@ -22,6 +22,7 @@ Future Release
 ---------------
 
 Version 2.0:
-=> support for postgresql
-=> run application using gunicorn
+=> support for postgresql.
+=> run application using gunicorn.
 => nginx reverse proxy & serving static files.
+=> support for supervisord process management.
