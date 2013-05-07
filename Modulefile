@@ -1,4 +1,4 @@
-name    'Yogesh-django-deploy'
+name    'django-deploy'
 version '0.0.1'
 source 'https://github.com/yspanchal/djangodeploy.git'
 author 'Yogesh'
