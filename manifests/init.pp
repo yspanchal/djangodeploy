@@ -12,7 +12,7 @@
 #
 # 
 #class djangodeploy {
-#	Class["params"] -> Class["python"] -> Class["venv"] -> Class["app"] -> Class["database"] -> Class["apprun"]
+#	Class["djangodeploy::params"] -> Class["djangodeploy::python"] -> Class["djangodeploy::venv"] -> Class["djangodeploy::app"] -> Class["djangodeploy::database"] -> Class["djangodeploy::apprun"]
 #}
 #
 #node puppet {
@@ -22,15 +22,16 @@
 #Customize Installation
 #
 #class djangodeploy {
-#	Class["params"] -> Class["python"] -> Class["venv"] -> Class["app"] -> Class["apprun"]
+#	Class["djangodeploy::params"] -> Class["djangodeploy::python"] -> Class["djangodeploy::venv"] -> Class["djangodeploy::app"] -> Class["djangodeploy::apprun"]
 #}
 #
 #
 #node mysql.example.com {
-#	include database
+#	include djangodeploy::database
 #}
 
 #node puppet {
 #	include djangodeploy
 #}
 ########################################################################################################################
+

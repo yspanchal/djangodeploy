@@ -1,4 +1,4 @@
-# Class: app
+# Class: djangodeploy::apprun
 #
 # This module manages creating database & running application
 #
@@ -13,14 +13,14 @@
 #
 # #############################################################################
 
-class apprun {
-	include params
+class djangodeploy::apprun {
+	include djangodeploy::params
 	exec { "Syncdb":
-		command		=>	"$params::envpath$params::envname/bin/python $params::envpath$params::managefilepath/manage.py syncdb --noinput",
-		cwd			=>	"$params::envpath$params::managefilepath",
+		command		=>	"$djangodeploy::params::envpath$djangodeploy::params::envname/bin/python $djangodeploy::params::envpath$djangodeploy::params::managefilepath/manage.py syncdb --noinput",
+		cwd			=>	"$djangodeploy::params::envpath$djangodeploy::params::managefilepath",
 	}
 	exec { "runapp":
-		command		=>	"$params::envpath/bin/python $params::envpath$params::managefilepath/manage.py runserver 0.0.0.0:8000 &",
-		cwd			=>	"$params::envpath$params::managefilepath",
+		command		=>	"$djangodeploy::params::envpath/bin/python $djangodeploy::params::envpath$djangodeploy::params::managefilepath/manage.py runserver 0.0.0.0:8000 &",
+		cwd			=>	"$djangodeploy::params::envpath$djangodeploy::params::managefilepath",
 	}
 }

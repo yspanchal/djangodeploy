@@ -1,4 +1,4 @@
-# Class: database
+# Class: djangodeploy::database
 #
 # This module manages installing mysql or sqlite database
 #
@@ -14,19 +14,19 @@
 #
 # #############################################################################
 
-class database {
-	include params
-	if "$params::database" == "mysql" {
-		include mysql
-	} elsif "$params::database" == "sqlite" {
-		include sqlite
+class djangodeploy::database {
+	include djangodeploy::params
+	if "$djangodeploy::params::database" == "mysql" {
+		include djangodeploy::mysql
+	} elsif "$djangodeploy::params::database" == "sqlite" {
+		include djangodeploy::sqlite
 	} else {
 		notify {"Error No database defined":}
 	}
 }
 
-class mysql {
-	include params
+class djangodeploy::mysql {
+	include djangodeploy::params
 	case $operatingsystem {
 		centos, redhat: {
 			$mysql			=	"mysql"
@@ -42,76 +42,43 @@ class mysql {
 		}
 	}
 	package { "$mysql":
-			ensure	=>	installed,
+			ensure		=>	present,
 	}
 	package { "$mysqlserver":
-			ensure	=>	installed,
+			ensure		=>	installed,
 	}
 	package { "$mysqldevel":
-			ensure	=>	installed,
+			ensure		=>	installed,
 	}
 	service { "$servicename":
-			ensure	=>	running,
-			enable	=>	true,
+			ensure		=>	running,
+			enable		=>	true,
 			hasstatus	=>	true,
 			hasrestart	=>	true,
 	}
 	Exec { path =>	"/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin" }
 	exec { "Setmysql password":
-			command		=>	"mysqladmin -u $params::mysqluser -p password $params::mysqlpassword",
-			cwd			=>	"$params::tmpdir",
+			command		=>	"mysqladmin -u $djangodeploy::params::mysqluser -p password $djangodeploy::params::mysqlpassword",
+			cwd			=>	"$djangodeploy::params::tmpdir",
 			require		=>	Service["$servicename"],
 			}
 	exec { "Create Database":
-			command		=>	"mysqladmin -u $params::mysqluser -p$params::mysqlpassword create $params::mysqldbname",
-			cwd			=>	"$params::tmpdir",
+			command		=>	"mysqladmin -u $djangodeploy::params::mysqluser -p$djangodeploy::params::mysqlpassword create $djangodeploy::params::mysqldbname",
+			cwd			=>	"$djangodeploy::params::tmpdir",
 			require		=>	Exec["Setmysql password"],
 	}		
 }
 
-class sqlite {
+class djangodeploy::sqlite {
 	case operatingsystem {
 		centos, redhat: {
-			$sqlite				=	"sqlite"
+			$sqlite			=	"sqlite"
 		}
 		debian, ubuntu: {
-			$sqlite				=	"sqlite"	
+			$sqlite			=	"sqlite"	
 		}
 	}
 	package { "$sqlite":
-		ensure	=>	installed,
+		ensure		=>	installed,
 	}
 }
-
-#class postgresql {
-#	case $operatingsystem {
-#		centos, redhat: {
-#			$postgresql			=	"postgresql"
-#			$postgresqlserver	=	"postgresql-server"
-#			$postgresqldevel	=	"postgresql-devel"
-#			$servicename		=	"postgresql"
-#		}
-#		debian, ubuntu:	{
-#			$postgresql			=	"postgresql-client"
-#			$postgresqlserver	=	"postgresql"
-#			$postgresqldevel	=	"postgresql-server-dev"
-#			$servicename		=	"postgresql"
-#		}
-#	}
-#	package { "$postgresql":
-#			ensure	=>	installed,
-#	}
-#	package { "$postgresqlserver":
-#			ensure	=>	installed,
-#	}
-#	package	{ "$postgresqldevel":
-#			ensure	=>	installed,
-#	}
-#	service { "$servicename":
-#			ensure	=>	running,
-#			enable	=>	true,
-#			hasstatus	=>	true,
-#			hasrestart	=>	true,
-#	} 
-#}
-
