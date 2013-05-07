@@ -1,11 +1,9 @@
 {
-  "name": "djangodeploy",
-  "author": "Yogesh",
-  "description": "module for setup django application",
   "license": "",
-  "source": "https://github.com/yspanchal/djangodeploy.git",
-  "summary": "module for setup django application",
-  "version": "1.0",
+  "version": "0.0.1",
+  "types": [
+
+  ],
   "checksums": {
     "Modulefile": "f68ee17e5756995ad1e62b410a074a3a",
     "README": "2b5e4a04c5d66df00fef9c81dbf844d7",
@@ -20,5 +18,13 @@
     "templates/requirements.txt.erb": "742ea6f0034a0c2fe3e1d4a1760e66b7",
     "tests/init.pp": "8ae2bf3923d1cfc36d854e2bcfe7172a"
   },
-  "dependencies": []
+  "dependencies": [
+
+]
+  "name": "djangodeploy",
+  "author": "Yogesh",
+  "description": "module for setup django application",
+  "summary": "module for setup django application",
+  "source": "https://github.com/yspanchal/djangodeploy.git",
 }
+
