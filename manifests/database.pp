@@ -18,8 +18,10 @@ class database {
 	include params
 	if "$params::database" == "mysql" {
 		include mysql
-	} else {
+	} elsif "$params::database" == "sqlite" {
 		include sqlite
+	} else {
+		notify {"Error No database defined":}
 	}
 }
 

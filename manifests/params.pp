@@ -48,5 +48,4 @@ class params {
 	$mysqlpassword = "password"
 	$mysqldbname = "myproject"
 	$managefilepath = "myproject/webapp"
-	
 }
